@@ -23,13 +23,13 @@ public class Banco {
 
         if (cuentaBancariaDestino.getNumeroDeCuenta() != cuentaBancariaOrigen.getNumeroDeCuenta()){
             if(cuentaBancariaOrigen.getBalance()>cantidad){
-                System.out.println("Saldo de la cuenta bancaria de origen: " + cuentaBancariaOrigen.getNumeroDeCuenta() + " : "+ cuentaBancariaOrigen.getBalance());
-                System.out.println("Inicio de transferencia de la cuenta :" + cuentaBancariaOrigen.getNumeroDeCuenta() + " Cantidad: " + cantidad +" a " + cuentaBancariaDestino.getNumeroDeCuenta());
+                System.out.println(Thread.currentThread().getName() + Constants.ORIGING_BALANCE_ES + cuentaBancariaOrigen.getNumeroDeCuenta() + " : "+ cuentaBancariaOrigen.getBalance());
+                System.out.println(Thread.currentThread().getName() + Constants.START_TRANSFER_ES + cuentaBancariaOrigen.getNumeroDeCuenta() + " Cantidad: " + cantidad +" a " + cuentaBancariaDestino.getNumeroDeCuenta());
                 cuentaBancariaOrigen.retirada(cantidad);
-                System.out.println("Nuevo saldo en la cuenta bancaria de origen: " + cuentaBancariaOrigen.getBalance());
-                System.out.println(Constants.NEW_BALANCE_ACCOUNT_ES + cuentaBancariaOrigen.getBalance() + Constants.INFO_ACOUNT_ES + cuentaBancariaOrigen.getNumeroDeCuenta());
+                System.out.println(Thread.currentThread().getName() + Constants.NEW_BALANCE_ACCOUNT_ES + cuentaBancariaOrigen.getBalance() + Constants.INFO_ACOUNT_ES + cuentaBancariaOrigen.getNumeroDeCuenta());
+                System.out.println(Thread.currentThread().getName()+ Constants.INITIAL_BALANCE_TO_ES+ cuentaBancariaDestino.getBalance());
                 cuentaBancariaDestino.deposito(cantidad);
-                System.out.println(Constants.NEW_BALANCE_ACCOUNT_ES + cuentaBancariaDestino.getBalance() + Constants.INFO_ACOUNT_ES + cuentaBancariaDestino.getNumeroDeCuenta());
+                System.out.println(Thread.currentThread().getName() + Constants.NEW_BALANCE_ACCOUNT_ES + cuentaBancariaDestino.getBalance() + Constants.INFO_ACOUNT_ES + cuentaBancariaDestino.getNumeroDeCuenta());
             }
             else{
                 System.out.println(Constants.TRANSFERENCE_WARNING_NOT_ENOUGHT_ES);

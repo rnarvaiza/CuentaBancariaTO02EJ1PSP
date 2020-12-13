@@ -17,6 +17,9 @@ public class Constants {
     final static String WITHDRAW_ATTEMPT_ES = " Realizando intento de reintegro de ";
     final static String DEPOSIT_ATTEMPT_ES = " Realizando deposito de ";
     final static String NEW_BALANCE_ACCOUNT_ES = " El nuevo balance es: ";
+    final static String ORIGING_BALANCE_ES = " Saldo de la cuenta bancaria de origen: ";
+    final static String START_TRANSFER_ES = " Inicio de transferencia de la cuenta : ";
+    final static String INITIAL_BALANCE_TO_ES = " Saldo de la cuenta bancaria de destino antes de la transferencia : ";
     final static int RANDOM_MAX_BETWEEN = 3;
     final static int RANDOM_MAX_MONEY = 100;
     final static int RANDOM_MAX_ITERATION = 25;
