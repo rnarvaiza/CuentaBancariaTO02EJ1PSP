@@ -1,20 +1,43 @@
+/**
+ * @author Rafael Narvaiza
+ * PSP - TO 02
+ *
+ * Banco class is designed to achieve all the bank accounts on a hashmap.
+ * Saving the each account inside de map we can achieve two different things: Randomize the aleatory
+ * access for each account, and save the BankAccount object on a dynamic way to synchronise different accounts actions on it.
+ *
+ */
+
+
 import java.util.HashMap;
 
 public class Banco {
-    public Banco(){
+    private static int key;
+    private static CuentaBancaria value;
+    public static HashMap<Integer, CuentaBancaria> cuentas=new HashMap<>();
 
+    public Banco(){
     }
 
-/*    public HashMap<Integer, CuentaBancaria> cuentasDelBanco(){
-        java.util.HashMap<java.lang.Integer, CuentaBancaria> cuentas = new HashMap<>();
+    public synchronized void transferenciaEntreCuentas (int cantidad, CuentaBancaria cuentaBancariaOrigen, CuentaBancaria cuentaBancariaDestino){
 
-        return cuentas;
-    }*/
+        if (cuentaBancariaDestino.getNumeroDeCuenta() != cuentaBancariaOrigen.getNumeroDeCuenta()){
+            if(cuentaBancariaOrigen.getBalance()>cantidad){
+                System.out.println("Saldo de la cuenta bancaria de origen: " + cuentaBancariaOrigen.getNumeroDeCuenta() + " : "+ cuentaBancariaOrigen.getBalance());
+                System.out.println("Inicio de transferencia de la cuenta :" + cuentaBancariaOrigen.getNumeroDeCuenta() + " Cantidad: " + cantidad +" a " + cuentaBancariaDestino.getNumeroDeCuenta());
+                cuentaBancariaOrigen.retirada(cantidad);
+                System.out.println("Nuevo saldo en la cuenta bancaria de origen: " + cuentaBancariaOrigen.getBalance());
+                System.out.println(Constants.NEW_BALANCE_ACCOUNT_ES + cuentaBancariaOrigen.getBalance() + Constants.INFO_ACOUNT_ES + cuentaBancariaOrigen.getNumeroDeCuenta());
+                cuentaBancariaDestino.deposito(cantidad);
+                System.out.println(Constants.NEW_BALANCE_ACCOUNT_ES + cuentaBancariaDestino.getBalance() + Constants.INFO_ACOUNT_ES + cuentaBancariaDestino.getNumeroDeCuenta());
+            }
+            else{
+                System.out.println(Constants.TRANSFERENCE_WARNING_NOT_ENOUGHT_ES);
+            }
+        }
+        System.out.println(Constants.TRANSFERENCE_WARNING_SAME_ACCOUNT_ES);
+    }
 
-
-/*    public CuentaBancaria getNumeroDeCuenta(int numero){
-        return cuentasDelBanco.get(numero);
-    }*/
 
 
 

@@ -1,3 +1,12 @@
+/**
+ * @author Rafael Narvaiza
+ * PSP - TO 02
+ *
+ * Here we set all the messages and the limits for the random.
+ * On this way we can reuse the random constructor as we want in each case.
+ */
+
+
 public class Constants {
 
     final static String TRANSFERENCE_WARNING_NOT_ENOUGHT_ES =" No es posible realizar la transferencia. Cuenta de origen sin saldo suficiente. ";
@@ -13,5 +22,5 @@ public class Constants {
     final static int RANDOM_MAX_ITERATION = 25;
     final static int RANDOM_MIN = 1;
     final static int RANDOM_AMOUNT_ACCOUNT=2;
-    final static int DEFAULT_BALANCE = 200;
+
 }
